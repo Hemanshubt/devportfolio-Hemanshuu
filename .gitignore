@@ -7,7 +7,10 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Dependencies
 node_modules
+
+# Build output
 dist
 dist-ssr
 *.local
@@ -16,14 +19,25 @@ dist-ssr
 .env
 .env.local
 .env.production
+server/.env
 
 # Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
+.vscode/
+.idea/
 .DS_Store
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
+Thumbs.db
+
+# Lock files (optional - keep package-lock.json)
+bun.lockb
+
+# Local server (not needed for Vercel)
+server/
+
+# OS files
+.DS_Store
+*.pem
