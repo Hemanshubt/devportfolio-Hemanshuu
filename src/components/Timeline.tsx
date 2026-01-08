@@ -3,26 +3,26 @@ import { useRef } from 'react';
 import { Award, GraduationCap } from 'lucide-react';
 
 const experiences = [
-  // {
-  //   type: 'certification',
-  //   title: 'AWS Knowledge: Cloud Essentials',
-  //   company: 'Amazon Web Services',
-  //   period: 'Certified',
-  //   description: 'Foundational understanding of AWS Cloud concepts, services, and terminology.',
-  // },
-  // {
-  //   type: 'certification',
-  //   title: 'Kubernetes for the Absolute Beginners',
-  //   company: 'Hands-on Tutorial',
-  //   period: 'Certified',
-  //   description: 'Comprehensive hands-on training in Kubernetes container orchestration.',
-  // },
   {
     type: 'education',
     title: 'Integrated Master in Computer Application',
-    company: 'R. C. Patel Institute of Management Research and Development',
+    company: 'R. C. Patel Institute of Management Research and Development, Shirpur',
     period: 'Aug 2020 - June 2025',
-    description: 'CGPA: 8.7.',
+    description: 'CGPA: 8.7',
+  },
+  {
+    type: 'education',
+    title: 'Higher Secondary Certificate (XII)',
+    company: 'R.C. Patel Arts Commerce & Science College, Shirpur',
+    period: '2018 - 2020',
+    description: 'PCT: 74.47%',
+  },
+  {
+    type: 'education',
+    title: 'Secondary School Certificate (X)',
+    company: 'R.C. Patel Main Building Secondary School, Shirpur',
+    period: '2008 - 2018',
+    description: 'PCT: 82.00%',
   },
 ];
 

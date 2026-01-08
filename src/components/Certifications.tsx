@@ -1,6 +1,6 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Award, ExternalLink } from 'lucide-react';
+import { Award, ExternalLink, Trophy } from 'lucide-react';
 
 const certifications = [
   {
@@ -17,6 +17,16 @@ const certifications = [
     badge: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg',
     color: '#326CE5',
     link: 'https://learn.kodekloud.com/certificate/2D1466DFC0C5-2D1460E91B48-2D145B4F88C5',
+  },
+];
+
+const achievements = [
+  {
+    title: '3rd Rank - Project Competition',
+    organization: 'Computer Society of India (CSI)',
+    icon: '🏆',
+    color: '#FFD700',
+    link: 'https://drive.google.com/file/d/1laqZANHF1I9w6SYAn_AInm85kxRYiPZk/view',
   },
 ];
 
@@ -93,12 +103,66 @@ export default function Certifications() {
           ))}
         </div>
 
-        {/* Terminal-style credential verification */}
+        {/* Achievements Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.6 }}
+          className="mt-16 text-center sm:mt-20"
+        >
+          <h3 className="mb-8 text-2xl font-bold sm:text-3xl">
+            <span className="gradient-text-accent">Achievements</span>
+          </h3>
+          
+          <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
+            {achievements.map((achievement, i) => (
+              <motion.a
+                key={i}
+                href={achievement.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                transition={{ duration: 0.5, delay: 0.7 + i * 0.1 }}
+                className="group relative flex w-full max-w-sm flex-col items-center rounded-xl border border-border bg-card/50 p-5 text-center backdrop-blur-sm transition-all duration-300 hover:border-yellow-500/50 hover:bg-card hover:shadow-lg hover:shadow-yellow-500/10 sm:p-6"
+              >
+                {/* Trophy glow */}
+                <div 
+                  className="absolute -top-2 left-1/2 h-24 w-24 -translate-x-1/2 rounded-full bg-yellow-500 opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-20"
+                />
+                
+                {/* Icon */}
+                <div className="relative mb-3 text-4xl sm:mb-4 sm:text-5xl">
+                  {achievement.icon}
+                </div>
+
+                {/* Achievement info */}
+                <h4 className="mb-1 text-base font-semibold text-foreground sm:text-lg">
+                  {achievement.title}
+                </h4>
+                <p className="text-sm text-muted-foreground">
+                  {achievement.organization}
+                </p>
+
+                {/* Badge */}
+                <div className="mt-3 flex items-center gap-1 rounded-full bg-yellow-500/10 px-3 py-1 text-xs font-medium text-yellow-500">
+                  <Trophy className="h-3 w-3" />
+                  <span>Achievement</span>
+                </div>
+
+                {/* External link icon */}
+                <ExternalLink className="absolute right-2 top-2 h-3 w-3 text-muted-foreground opacity-0 transition-opacity group-hover:opacity-100 sm:right-3 sm:top-3 sm:h-4 sm:w-4" />
+              </motion.a>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Terminal-style credential verification - Bottom */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="mx-auto mt-10 max-w-md sm:mt-16"
+          transition={{ duration: 0.6, delay: 0.8 }}
+          className="mx-auto mt-12 max-w-md sm:mt-16"
         >
           <div className="terminal">
             <div className="terminal-header">
@@ -112,6 +176,10 @@ export default function Certifications() {
               <p className="text-muted-foreground">Checking certification status...</p>
               <p className="text-green-500">✓ All {certifications.length} certifications verified</p>
               <p className="text-muted-foreground">→ Status: <span className="text-primary">Active & Valid</span></p>
+              <p className="mt-2"><span className="text-secondary">$</span> list --achievements</p>
+              <p className="text-muted-foreground">Fetching achievements...</p>
+              <p className="text-yellow-500">🏆 {achievements.length} achievement(s) found</p>
+              <p className="text-muted-foreground">→ CSI Project Competition: <span className="text-yellow-500">3rd Rank</span></p>
             </div>
           </div>
         </motion.div>

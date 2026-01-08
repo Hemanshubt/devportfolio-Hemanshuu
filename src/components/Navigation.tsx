@@ -52,9 +52,9 @@ export default function Navigation() {
                 <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-primary transition-all duration-300 group-hover:w-full" />
               </a>
             ))}
-            <a href="#contact" className="btn-primary text-sm">
+            {/* <a href="#contact" className="btn-primary text-sm">
               Hire Me
-            </a>
+            </a> */}
           </div>
 
           {/* Mobile Menu Button */}

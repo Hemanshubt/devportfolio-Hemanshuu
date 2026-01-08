@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { ArrowDown, Cloud, Server, GitBranch } from 'lucide-react';
-import { FaGithub, FaLinkedin, FaTelegram } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaTelegram, FaTwitter } from 'react-icons/fa';
 import CloudScene from './CloudScene';
 import ResumeButton from './ResumeButton';
 
@@ -32,11 +32,13 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="mb-4 text-4xl font-bold leading-tight sm:mb-6 sm:text-5xl md:text-7xl lg:text-8xl"
+          className="mb-4 text-3xl font-bold leading-tight sm:mb-6 sm:text-4xl md:text-5xl lg:text-6xl"
         >
           <span className="text-glow text-primary">DevOps</span>
+          <span className="text-foreground"> & </span>
+          <span className="text-glow-green text-secondary">Cloud</span>
           <br />
-          <span className="text-foreground">Engineer</span>
+          <span className="text-foreground">Enthusiast</span>
         </motion.h1>
 
         {/* Name */}
@@ -44,7 +46,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="mb-3 text-xl font-semibold text-foreground sm:mb-4 sm:text-2xl md:text-3xl"
+          className="mb-3 text-2xl font-semibold text-foreground sm:mb-4 sm:text-3xl md:text-4xl lg:text-5xl"
         >
           Hemanshu Mahajan
         </motion.p>
@@ -106,6 +108,15 @@ export default function Hero() {
             className="flex h-10 w-10 items-center justify-center rounded-xl border border-border bg-card/50 backdrop-blur-sm transition-all duration-300 hover:border-blue-500/50 hover:bg-blue-500/10 hover:text-blue-500 sm:h-12 sm:w-12"
           >
             <FaLinkedin className="h-5 w-5 sm:h-6 sm:w-6" />
+          </a>
+          <a
+            href="https://x.com/Hemanshubtc"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Twitter"
+            className="flex h-10 w-10 items-center justify-center rounded-xl border border-border bg-card/50 backdrop-blur-sm transition-all duration-300 hover:border-sky-400/50 hover:bg-sky-400/10 hover:text-sky-400 sm:h-12 sm:w-12"
+          >
+            <FaTwitter className="h-5 w-5 sm:h-6 sm:w-6" />
           </a>
           {/* <a
             href="https://t.me/Hemanshu_Mahajan"
