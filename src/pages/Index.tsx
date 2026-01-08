@@ -1,3 +1,6 @@
+import { useState } from 'react';
+import { AnimatePresence } from 'framer-motion';
+import LoadingScreen from '@/components/LoadingScreen';
 import Navigation from '@/components/Navigation';
 import Hero from '@/components/Hero';
 import Marquee from '@/components/Marquee';
@@ -9,18 +12,28 @@ import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 
 const Index = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
   return (
-    <div className="min-h-screen bg-background">
-      <Navigation />
-      <Hero />
-      <Marquee />
-      <About />
-      <Skills />
-      <Projects />
-      <Timeline />
-      <Contact />
-      <Footer />
-    </div>
+    <>
+      <AnimatePresence mode="wait">
+        {isLoading && <LoadingScreen onComplete={() => setIsLoading(false)} />}
+      </AnimatePresence>
+
+      {!isLoading && (
+        <div className="min-h-screen bg-background">
+          <Navigation />
+          <Hero />
+          <Marquee />
+          <About />
+          <Skills />
+          <Projects />
+          <Timeline />
+          <Contact />
+          <Footer />
+        </div>
+      )}
+    </>
   );
 };
 
