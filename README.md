@@ -1,73 +1,117 @@
-# Welcome to your Lovable project
+# Hemanshu Mahajan - Portfolio
 
-## Project info
+A modern, responsive portfolio website showcasing DevOps & Cloud engineering skills, projects, and certifications.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+🔗 **Live Demo:** [View Portfolio](https://hemanshu.dev)
 
-## How can I edit this code?
+## Tech Stack
 
-There are several ways of editing your application.
+**Frontend:**
+- React 18 + TypeScript
+- Vite 7 (build tool)
+- Tailwind CSS + shadcn/ui
+- Framer Motion (animations)
+- Three.js + React Three Fiber (3D graphics)
+- React Router DOM
 
-**Use Lovable**
+**Backend:**
+- Node.js + Express
+- Nodemailer (contact form emails)
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+## Features
 
-Changes made via Lovable will be committed automatically to this repo.
+- 🎨 Modern dark theme with animated 3D cloud scene
+- 📱 Fully responsive design
+- ⚡ Optimized performance with code splitting
+- 📧 Contact form with email integration
+- 🎯 Smooth scroll animations
+- 📄 Downloadable resume
 
-**Use your preferred IDE**
+## Getting Started
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Prerequisites
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+- Node.js 24.x
+- npm or bun
 
-Follow these steps:
+### Installation
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+1. Clone the repository:
+```bash
+git clone https://github.com/Hemanshubt/portfolio.git
+cd portfolio
+```
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+2. Install frontend dependencies:
+```bash
+npm install
+```
 
-# Step 3: Install the necessary dependencies.
-npm i
+3. Install server dependencies:
+```bash
+cd server
+npm install
+cd ..
+```
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+4. Set up environment variables:
+
+Create `.env` in the root directory:
+```env
+VITE_API_URL=http://localhost:3001
+```
+
+Create `server/.env`:
+```env
+EMAIL_ADDRESS=your-email@gmail.com
+GMAIL_PASSKEY=your-app-password
+```
+
+### Development
+
+Run the frontend:
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+Run the backend (in a separate terminal):
+```bash
+cd server
+npm run dev
+```
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+The app will be available at `http://localhost:8080`
 
-**Use GitHub Codespaces**
+### Build
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+```bash
+npm run build
+```
 
-## What technologies are used for this project?
+## Project Structure
 
-This project is built with:
+```
+├── src/
+│   ├── components/     # React components
+│   ├── data/           # Static data (projects, skills)
+│   ├── hooks/          # Custom React hooks
+│   ├── lib/            # Utility functions
+│   └── pages/          # Page components
+├── server/             # Express backend for contact form
+├── public/             # Static assets
+└── api/                # Vercel serverless functions
+```
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## Deployment
 
-## How can I deploy this project?
+The project is configured for Vercel deployment with `vercel.json`.
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+## License
 
-## Can I connect a custom domain to my Lovable project?
+MIT
 
-Yes, you can!
+## Contact
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+- GitHub: [@Hemanshubt](https://github.com/Hemanshubt)
+- LinkedIn: [Hemanshu Mahajan](https://www.linkedin.com/in/hemanshu-mahajan/)
+- Twitter: [@Hemanshubtc](https://x.com/Hemanshubtc)
