@@ -319,12 +319,6 @@ npm install
 
 ---
 
-## License :page_with_curl:
-
-This project is licensed under the **MIT License**.
-
----
-
 ## Contact :coffee:
 
 - **GitHub**: [@Hemanshubt](https://github.com/Hemanshubt)
