@@ -9,16 +9,16 @@
   <img src="https://img.shields.io/badge/Vite-7.3.1-646CFF?style=for-the-badge&logo=vite" alt="Vite 7.3.1">
   <img src="https://img.shields.io/badge/TypeScript-5.8.3-3178C6?style=for-the-badge&logo=typescript" alt="TypeScript 5.8.3">
   <img src="https://img.shields.io/badge/Tailwind_CSS-3.4-38B2AC?style=for-the-badge&logo=tailwind-css" alt="Tailwind CSS">
-  <img src="https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge" alt="License">
+  <!-- <img src="https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge" alt="License"> -->
 </p>
 
 <p align="center">
-  <a href="#demo-movie_camera">Demo</a> •
+  <a href="#overview">Overview</a> •
   <a href="#features-sparkles">Features</a> •
-  <a href="#installation-arrow_down">Installation</a> •
-  <a href="#usage-joystick">Usage</a> •
+  <a href="#tech-stack-computer">Tech Stack</a> •
+  <a href="#getting-started-dart">Getting Started</a> •
   <a href="#deployment-rocket">Deployment</a> •
-  <a href="#tutorials-wrench">Tutorials</a>
+  <a href="#contact-coffee">Contact</a>
 </p>
 
 ---
