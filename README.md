@@ -32,7 +32,7 @@ A professional portfolio website built with **React 18**, **Vite 7**, **TypeScri
 ## Demo :movie_camera:
 
 <p align="center">
-  <a href="https://devportfolio-hemanshuu.vercel.app/" target="_blank">
+  <a href="https://hemanshudev.cloud/" target="_blank">
     <strong>🚀 View Live Demo</strong>
   </a>
 </p>
@@ -109,7 +109,7 @@ git --version
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/Hemanshubt/portfolio.git
+git clone https://github.com/Hemanshubt/devportfolio-Hemanshuu.git
 cd portfolio
 ```
 
