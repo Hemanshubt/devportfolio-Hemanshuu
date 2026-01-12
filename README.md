@@ -119,30 +119,34 @@ cd portfolio
 # Install frontend dependencies
 npm install
 
-# Install server dependencies
-cd server
+# Install API dependencies
+cd api
 npm install
 cd ..
 ```
 
 ### 3. Set Up Environment Variables
 
-```bash
-# Copy example env file (or create manually)
-cp .env.example .env
-cp server/.env.example server/.env
-```
+Create a `.env` file in the root directory:
 
-Edit the `.env` files with your values (see [Usage](#usage-joystick) section).
+```env
+# Gmail Configuration
+EMAIL_ADDRESS=your-email@gmail.com
+GMAIL_PASSKEY=your-gmail-app-password
+
+# Telegram Configuration
+TELEGRAM_BOT_TOKEN=your-telegram-bot-token
+TELEGRAM_CHAT_ID=your-telegram-chat-id
+```
 
 ### 4. Run the Development Server
 
 ```bash
-# Terminal 1: Run frontend
+# Terminal 1: Run API server
+cd api
 npm run dev
 
-# Terminal 2: Run backend (for contact form)
-cd server
+# Terminal 2: Run frontend
 npm run dev
 ```
 
@@ -154,26 +158,14 @@ Open [http://localhost:8080](http://localhost:8080) in your browser.
 
 ### Environment Variables Configuration
 
-#### Root `.env` (for Vercel serverless functions)
+Create a `.env` file in the root directory with the following variables:
 
 ```env
 # Gmail Configuration
 EMAIL_ADDRESS=your-email@gmail.com
 GMAIL_PASSKEY=your-gmail-app-password
 
-# Telegram Configuration (Optional)
-TELEGRAM_BOT_TOKEN=your-telegram-bot-token
-TELEGRAM_CHAT_ID=your-telegram-chat-id
-```
-
-#### `server/.env` (for local Express server)
-
-```env
-# Gmail Configuration
-EMAIL_ADDRESS=your-email@gmail.com
-GMAIL_PASSKEY=your-gmail-app-password
-
-# Telegram Configuration (Optional)
+# Telegram Configuration
 TELEGRAM_BOT_TOKEN=your-telegram-bot-token
 TELEGRAM_CHAT_ID=your-telegram-chat-id
 ```
@@ -184,10 +176,10 @@ TELEGRAM_CHAT_ID=your-telegram-chat-id
 | --- | --- | --- |
 | `EMAIL_ADDRESS` | Yes | Your Gmail address for sending emails |
 | `GMAIL_PASSKEY` | Yes | Gmail app password (16 characters) |
-| `TELEGRAM_BOT_TOKEN` | No | Token for Telegram bot notifications |
-| `TELEGRAM_CHAT_ID` | No | Your Telegram chat ID for receiving messages |
+| `TELEGRAM_BOT_TOKEN` | Yes | Token for Telegram bot notifications |
+| `TELEGRAM_CHAT_ID` | Yes | Your Telegram chat ID for receiving messages |
 
-> **Note**: Contact form requires Gmail configuration. Telegram is optional for additional notifications.
+> **Note**: Both Email and Telegram run in parallel for faster delivery. At least one must be configured for the contact form to work.
 
 ---
 
@@ -200,8 +192,10 @@ TELEGRAM_CHAT_ID=your-telegram-chat-id
 │   ├── hooks/          # Custom React hooks
 │   ├── lib/            # Utility functions
 │   └── pages/          # Page components (Index, ProjectDetail, NotFound)
-├── server/             # Express backend for contact form
-├── api/                # Vercel serverless functions
+├── api/                # Contact form API (Express for local, Vercel serverless for prod)
+│   ├── contact.js      # Contact form handler (Email + Telegram)
+│   ├── server.js       # Local Express server
+│   └── package.json    # API dependencies
 ├── public/             # Static assets (images, resume PDF)
 └── ...config files
 ```
@@ -312,10 +306,11 @@ npm install
 
 | Command | Description |
 | --- | --- |
-| `npm run dev` | Start development server |
+| `npm run dev` | Start frontend development server |
 | `npm run build` | Build for production |
 | `npm run preview` | Preview production build |
 | `npm run lint` | Run ESLint |
+| `cd api && npm run dev` | Start API server (for local development) |
 
 ---
 
