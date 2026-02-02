@@ -11,7 +11,7 @@ export default function Projects() {
   return (
     <section id="projects" className="relative py-16 md:py-32">
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-background via-card/10 to-background" />
-      
+
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6">
         <motion.div
           ref={ref}
@@ -41,15 +41,13 @@ export default function Projects() {
               <div className="p-4 sm:p-6">
                 {/* Header */}
                 <div className="mb-3 flex items-start justify-between">
-                  <div className={`flex h-10 w-10 items-center justify-center rounded-xl ${
-                    project.color === 'primary' ? 'bg-primary/10' : 'bg-secondary/10'
-                  }`}>
-                    <project.icon className={`h-5 w-5 ${
-                      project.color === 'primary' ? 'text-primary' : 'text-secondary'
-                    }`} />
+                  <div className={`flex h-10 w-10 items-center justify-center rounded-xl ${project.color === 'primary' ? 'bg-primary/10' : 'bg-secondary/10'
+                    }`}>
+                    <project.icon className={`h-5 w-5 ${project.color === 'primary' ? 'text-primary' : 'text-secondary'
+                      }`} />
                   </div>
                   {project.github !== '#' && (
-                    <a 
+                    <a
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
@@ -72,9 +70,8 @@ export default function Projects() {
                   {project.highlights.map((highlight, j) => (
                     <span
                       key={j}
-                      className={`rounded-full px-2 py-0.5 text-xs font-medium ${
-                        project.color === 'primary' ? 'bg-primary/10 text-primary' : 'bg-secondary/10 text-secondary'
-                      }`}
+                      className={`rounded-full px-2 py-0.5 text-xs font-medium ${project.color === 'primary' ? 'bg-primary/10 text-primary' : 'bg-secondary/10 text-secondary'
+                        }`}
                     >
                       {highlight}
                     </span>
@@ -99,7 +96,7 @@ export default function Projects() {
                 </div>
 
                 {/* View Details Link */}
-                <Link 
+                <Link
                   to={`/project/${project.slug}`}
                   className="mt-4 flex items-center gap-2 font-medium text-primary transition-all duration-300 hover:gap-3"
                 >

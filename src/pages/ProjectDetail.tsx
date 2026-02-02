@@ -2,7 +2,6 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Github, ExternalLink, Server, Zap, GitBranch, Shield, Calendar, User } from 'lucide-react';
 import { useEffect } from 'react';
-import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import ScrollToTop from '@/components/ScrollToTop';
 import { projects } from '@/data/projects';
@@ -10,7 +9,7 @@ import { projects } from '@/data/projects';
 export default function ProjectDetail() {
   const { slug } = useParams();
   const navigate = useNavigate();
-  
+
   const project = projects.find(p => p.slug === slug);
 
   // Scroll to top when page loads
@@ -26,7 +25,6 @@ export default function ProjectDetail() {
   if (!project) {
     return (
       <div className="min-h-screen bg-background">
-        <Navigation />
         <div className="flex min-h-[60vh] items-center justify-center">
           <div className="text-center">
             <h1 className="text-4xl font-bold text-foreground">Project Not Found</h1>
@@ -43,13 +41,12 @@ export default function ProjectDetail() {
 
   return (
     <div className="min-h-screen bg-background">
-      <Navigation />
-      
+
       {/* Hero Section */}
       <section className="relative overflow-hidden pt-24 pb-16 md:pt-32 md:pb-24">
         <div className="bg-grid pointer-events-none absolute inset-0 opacity-20" />
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-primary/5 via-background to-background" />
-        
+
         <div className="relative mx-auto max-w-4xl px-4 sm:px-6">
           {/* Back Button */}
           <motion.button
@@ -70,20 +67,17 @@ export default function ProjectDetail() {
           >
             {/* Icon & Category */}
             <div className="mb-6 flex items-center gap-4">
-              <div className={`flex h-14 w-14 items-center justify-center rounded-2xl ${
-                project.color === 'primary' ? 'bg-primary/10' : 'bg-secondary/10'
-              }`}>
-                <project.icon className={`h-7 w-7 ${
-                  project.color === 'primary' ? 'text-primary' : 'text-secondary'
-                }`} />
+              <div className={`flex h-14 w-14 items-center justify-center rounded-2xl ${project.color === 'primary' ? 'bg-primary/10' : 'bg-secondary/10'
+                }`}>
+                <project.icon className={`h-7 w-7 ${project.color === 'primary' ? 'text-primary' : 'text-secondary'
+                  }`} />
               </div>
               <div className="flex flex-wrap gap-2">
                 {project.highlights.map((highlight, i) => (
                   <span
                     key={i}
-                    className={`rounded-full px-3 py-1 text-xs font-medium ${
-                      project.color === 'primary' ? 'bg-primary/10 text-primary' : 'bg-secondary/10 text-secondary'
-                    }`}
+                    className={`rounded-full px-3 py-1 text-xs font-medium ${project.color === 'primary' ? 'bg-primary/10 text-primary' : 'bg-secondary/10 text-secondary'
+                      }`}
                   >
                     {highlight}
                   </span>
@@ -139,7 +133,7 @@ export default function ProjectDetail() {
       <section className="py-12 md:py-20">
         <div className="mx-auto max-w-4xl px-4 sm:px-6">
           <div className="grid gap-12 lg:gap-16">
-            
+
             {/* Overview */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
