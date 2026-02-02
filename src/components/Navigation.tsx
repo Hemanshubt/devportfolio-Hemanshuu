@@ -60,7 +60,7 @@ export default function Navigation() {
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
         >
-          <div className="flex items-center gap-1 rounded-full border border-white/10 bg-transparent px-3 py-2 shadow-2xl backdrop-blur-md">
+          <div className="flex items-center gap-1 rounded-full border border-white/10 bg-black/60 px-3 py-2 shadow-2xl backdrop-blur-xl">
             {/* Nav Links Only - Centered */}
             {navLinks.map((link) => (
               <a
@@ -85,7 +85,7 @@ export default function Navigation() {
           className="relative"
         >
           {/* Floating Pill Container */}
-          <div className="flex items-center gap-1 rounded-full border border-white/10 bg-transparent px-2 py-2 shadow-2xl backdrop-blur-md">
+          <div className="flex items-center gap-1 rounded-full border border-white/10 bg-black/60 px-2 py-2 shadow-2xl backdrop-blur-xl">
             {/* Logo */}
             <a
               href="#"

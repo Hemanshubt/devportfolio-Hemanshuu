@@ -179,7 +179,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.5 }}
           className="mx-auto mb-8 max-w-md"
         >
-          <div className="overflow-hidden rounded-xl border border-white/10 bg-black/40 backdrop-blur-sm">
+          <div className="overflow-hidden rounded-xl border border-white/20 bg-white/5 backdrop-blur-xl">
             <div className="flex items-center gap-2 border-b border-white/10 bg-white/5 px-4 py-2">
               <div className="h-3 w-3 rounded-full bg-red-500/80" />
               <div className="h-3 w-3 rounded-full bg-yellow-500/80" />
