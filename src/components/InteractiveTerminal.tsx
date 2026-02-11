@@ -371,7 +371,7 @@ Visitor Question: ${question}
                                         })
                                     });
 
-                                     if (!response.ok) {
+                                    if (!response.ok) {
                                         const errorText = await response.text();
                                         console.warn(`[Terminal] Model ${model} failed:`, errorText);
 
@@ -480,7 +480,17 @@ Visitor Question: ${question}
                                                     return;
                                                 }
                                             } else {
-                                                // If auto-discovered model fails, capture its error status
+                                                // Handle errors for auto-discovered models
+                                                if (response.status === 429) {
+                                                    throw new Error('API_RATE_LIMIT: AI is currently overloaded. Please wait a minute.');
+                                                }
+                                                const errorText = await response.text();
+                                                if (response.status === 403 && errorText.includes('Enable it by visiting')) {
+                                                    try {
+                                                        const errJson = JSON.parse(errorText);
+                                                        throw new Error(`API_DISABLED: ${errJson.error.message}`);
+                                                    } catch (parseError) { }
+                                                }
                                                 throw new Error(`API Error: ${response.status}`);
                                             }
                                         }
