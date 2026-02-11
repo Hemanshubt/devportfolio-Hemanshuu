@@ -47,8 +47,19 @@ export default function KonamiEasterEgg() {
     // Listen for Konami Code
     useEffect(() => {
         const handleKeyDown = (e: KeyboardEvent) => {
+            // Don't capture if user is typing in an input
+            const tag = (e.target as HTMLElement)?.tagName;
+            if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+
             const expected = KONAMI_CODE[codeIndex.current];
-            if (e.key.toLowerCase() === expected.toLowerCase()) {
+
+            // Arrow keys are case-sensitive (e.key = "ArrowUp"), letters need case-insensitive
+            const keyMatches = expected.startsWith('Arrow')
+                ? e.key === expected
+                : e.key.toLowerCase() === expected.toLowerCase();
+
+            if (keyMatches) {
+                e.preventDefault(); // Prevent page scrolling on arrow keys
                 codeIndex.current++;
                 if (codeIndex.current === KONAMI_CODE.length) {
                     setActivated(true);
@@ -172,12 +183,12 @@ export default function KonamiEasterEgg() {
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ duration: 0.2 }}
                                 className={`${line.includes('🎉') ? 'text-lg font-bold text-emerald-400' :
-                                        line.includes('✅') ? 'text-emerald-400' :
-                                            line.includes('🚀') ? 'text-cyan-400' :
-                                                line.includes('🔄') ? 'text-yellow-400' :
-                                                    line.includes('$') ? 'text-green-400' :
-                                                        line.includes('🌍') ? 'text-purple-400' :
-                                                            'text-white/70'
+                                    line.includes('✅') ? 'text-emerald-400' :
+                                        line.includes('🚀') ? 'text-cyan-400' :
+                                            line.includes('🔄') ? 'text-yellow-400' :
+                                                line.includes('$') ? 'text-green-400' :
+                                                    line.includes('🌍') ? 'text-purple-400' :
+                                                        'text-white/70'
                                     }`}
                             >
                                 {line || <br />}
