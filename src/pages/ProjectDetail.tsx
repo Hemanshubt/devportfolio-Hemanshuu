@@ -65,6 +65,17 @@ export default function ProjectDetail() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
           >
+            {/* Project Image */}
+            {project.image && (
+              <div className="mb-8 overflow-hidden rounded-2xl border border-border">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full aspect-video object-cover"
+                />
+              </div>
+            )}
+
             {/* Icon & Category */}
             <div className="mb-6 flex items-center gap-4">
               <div className={`flex h-14 w-14 items-center justify-center rounded-2xl ${project.color === 'primary' ? 'bg-primary/10' : 'bg-secondary/10'

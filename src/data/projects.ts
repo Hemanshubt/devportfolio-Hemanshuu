@@ -10,6 +10,7 @@ export const projects = [
     color: 'primary',
     highlights: ['High Availability', 'Scalable Design', 'Secure VPC'],
     github: 'https://github.com/Hemanshubt/two-tier-flaskapp',
+    image: 'https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&h=450&fit=crop',
     readme: {
       overview: 'A comprehensive CI/CD pipeline for deploying a two-tier Flask application using Docker containers and Kubernetes orchestration.',
       features: [
@@ -38,6 +39,7 @@ export const projects = [
     color: 'secondary',
     highlights: ['Cost Optimized', 'Automated Testing', 'Real-time Monitoring'],
     github: 'https://github.com/Hemanshubt/Node-todo-app-main',
+    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=450&fit=crop',
     readme: {
       overview: 'Implemented an automated CI/CD pipeline for a Node.js To-Do application using Jenkins, Docker, and AWS infrastructure.',
       features: [
@@ -66,6 +68,7 @@ export const projects = [
     color: 'primary',
     highlights: ['99.9% Uptime', '2x User Capacity', '80% Faster Setup'],
     github: '#',
+    image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=450&fit=crop',
     readme: {
       overview: 'Designed and implemented a CI/CD pipeline for a Flask/MySQL application, doubling user capacity from 10,000 to 20,000 users.',
       features: [
@@ -93,6 +96,7 @@ export const projects = [
     color: 'secondary',
     highlights: ['40% Cost Reduction', '90% Automation', '30% More Reliable'],
     github: '#',
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=450&fit=crop',
     readme: {
       overview: 'Achieved a 40% reduction in infrastructure costs and a 50% faster setup time by refining the CI/CD pipeline with Jenkins and Terraform.',
       features: [
