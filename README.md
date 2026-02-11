@@ -44,7 +44,7 @@ A professional portfolio website built with **React 18**, **Vite 7**, **TypeScri
 - ✅ **Modern Tech Stack**: React 18, Vite 7, TypeScript, Tailwind CSS
 - ✅ **3D Animations**: Interactive cloud scene with Three.js & React Three Fiber
 - ✅ **Smooth Animations**: Framer Motion for fluid transitions
-- ✅ **AI-Powered Terminal**: Context-aware assistant powered by Google Gemini (Flash 1.5)
+- ✅ **AI-Powered Terminal**: Context-aware assistant powered by Google Gemini (Flash 1.5/2.0) with robust fallback and auto-discovery mechanisms.
 - ✅ **Interactive Commands**: Custom terminal commands (`matrix`, `hack`, `coffee`, etc.)
 - ✅ **Fully Responsive**: Optimized for all devices and screen sizes
 - ✅ **Dark Theme**: Beautiful gradient design with glowing effects
@@ -207,7 +207,10 @@ The portfolio features a built-in terminal with AI capabilities and fun Easter e
 | `clear`, `date` | **System** | Standard console utilities |
 | `sudo hire` | **Easter Egg** | The ultimate command for recruiters |
 
-**Pro Tip:** Use the `Tab` key to autocomplete commands or cycle through AI question suggestions!
+**Terminal Features:**
+- **Smart Autocomplete:** Press `Tab` to complete commands or cycle through AI question suggestions.
+- **Robust AI Fallback:** Automatically cycles through multiple models (Gemini Flash/Pro) and auto-discovers available models to ensure maximum uptime.
+- **Typewriter Effect:** AI responses stream in real-time with Markdown support.
 
 ---
 
@@ -347,6 +350,15 @@ npm run dev -- --port 3000
 **Solution:**
 - Click inside the terminal to ensure it has focus.
 - Autocomplete cycles through options; continue pressing **Tab** to see more matches.
+</details>
+
+<details>
+<summary><strong>❌ AI Error: 429 (Too Many Requests)</strong></summary>
+
+**Solution:**
+- This occurs when the Gemini free tier rate limit is reached.
+- **Wait 60 seconds** and try again.
+- The terminal is optimized to handle this gracefully and will inform you if the AI is currently overloaded.
 </details>
 
 ---
