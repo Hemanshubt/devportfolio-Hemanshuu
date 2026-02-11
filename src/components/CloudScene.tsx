@@ -243,6 +243,7 @@ function SceneWrapper() {
 
 export default function CloudScene() {
   const [isVisible, setIsVisible] = useState(true);
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
   // Pause animation when tab is not visible
   useEffect(() => {
@@ -251,11 +252,41 @@ export default function CloudScene() {
     return () => document.removeEventListener('visibilitychange', handleVisibility);
   }, []);
 
+  // Handle WebGL context loss and restoration
+  useEffect(() => {
+    const handleContextLost = (event: Event) => {
+      event.preventDefault();
+      console.warn('WebGL context lost. Attempting to restore...');
+      setIsVisible(false);
+    };
+
+    const handleContextRestored = () => {
+      console.log('WebGL context restored.');
+      setIsVisible(true);
+    };
+
+    const canvas = canvasRef.current;
+    if (canvas) {
+      canvas.addEventListener('webglcontextlost', handleContextLost);
+      canvas.addEventListener('webglcontextrestored', handleContextRestored);
+    }
+
+    return () => {
+      if (canvas) {
+        canvas.removeEventListener('webglcontextlost', handleContextLost);
+        canvas.removeEventListener('webglcontextrestored', handleContextRestored);
+      }
+    };
+  }, []);
+
   if (!isVisible) return <div className="absolute inset-0 -z-10 bg-[#080d16]" />;
 
   return (
     <div className="absolute inset-0 -z-10">
       <Canvas
+        ref={(canvas) => {
+          if (canvas) canvasRef.current = canvas as unknown as HTMLCanvasElement;
+        }}
         camera={{ position: [0, 0, 7], fov: 50 }}
         gl={{
           antialias: false, // Disable for performance
@@ -263,6 +294,8 @@ export default function CloudScene() {
           powerPreference: 'high-performance',
           stencil: false,
           depth: true,
+          preserveDrawingBuffer: false,
+          failIfMajorPerformanceCaveat: false,
         }}
         dpr={[1, 1.2]} // Low DPR for performance
         frameloop={isVisible ? 'always' : 'never'}
