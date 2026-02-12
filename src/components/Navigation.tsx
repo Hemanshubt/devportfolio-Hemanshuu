@@ -46,18 +46,44 @@ export default function Navigation() {
 
   // Detect footer visibility to hide navbar
   useEffect(() => {
-    const footer = document.querySelector('footer');
-    if (!footer) return;
+    let observer: IntersectionObserver | null = null;
+    let intervalId: NodeJS.Timeout | null = null;
+    let attempts = 0;
+    const maxAttempts = 10; // Try for 5 seconds (10 * 500ms)
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIsFooterVisible(entry.isIntersecting);
-      },
-      { threshold: 0.1 }
-    );
+    const setupObserver = () => {
+      const footer = document.querySelector('footer');
+      if (footer) {
+        observer = new IntersectionObserver(
+          ([entry]) => {
+            setIsFooterVisible(entry.isIntersecting);
+          },
+          { threshold: 0.1 } // Trigger when 10% of footer is visible
+        );
+        observer.observe(footer);
+        
+        // Clear polling if successful
+        if (intervalId) clearInterval(intervalId);
+        return true;
+      }
+      return false;
+    };
 
-    observer.observe(footer);
-    return () => observer.disconnect();
+    // Try immediately
+    if (!setupObserver()) {
+      // Poll if not found immediately (e.g., lazy loaded)
+      intervalId = setInterval(() => {
+        attempts++;
+        if (setupObserver() || attempts >= maxAttempts) {
+          if (intervalId) clearInterval(intervalId);
+        }
+      }, 500);
+    }
+
+    return () => {
+      if (observer) observer.disconnect();
+      if (intervalId) clearInterval(intervalId);
+    };
   }, []);
 
   return (
